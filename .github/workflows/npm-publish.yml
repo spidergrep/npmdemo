@@ -38,6 +38,7 @@ jobs:
          git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
          npm run release
+         git push --follow-tags origin main
     #  - run: sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json 
     # - run: npm publish
         env:
