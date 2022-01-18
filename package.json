@@ -1,18 +1,19 @@
 {
   "name": "@spidergrep/npmdemo",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "NPM demo",
   "homepage": "http://spideragrep.github.io/npmdemo/",
   "repository": {
     "type": "git",
-    "url": "git+https:github.com/spidergrep/npmdemo.git"
+    "url": "https:github.com/spidergrep/npmdemo.git"
   },
   "bugs": {
     "url": "https://github.com/spidergrep/npmdemo/issues"
   },
   "scripts": {
     "test": "karma start --single-run  ./src/test/js/karma.conf.js",
-    "karma-test": "jasmine"
+    "karma-test": "jasmine",
+     "postpublish" : "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags"
   },
   "author": "Spideragrep",
   "license": "AGPL",
