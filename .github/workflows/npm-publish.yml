@@ -37,7 +37,7 @@ jobs:
          sed 's/unix/linux/' sedfile.txt
          git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
-         git add .sedfile.txt
+         git add sedfile.txt
          git commit -m "Updated the tag version ${{ github.event.release.tag_name }}"
          git push
       - run:  |
