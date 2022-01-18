@@ -33,12 +33,17 @@ jobs:
       - run: npm config set registry https://npm.pkg.github.com
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm set //registry.npmjs.org/:_authToken ${{secrets.npm_token}}
-      - run: sed 's/unix/linux/' sedfile.txt
+      - run: | 
+         sed 's/unix/linux/' sedfile.txt
+         git config user.email "38@teragrep.com"
+         git config user.name "spidermanja"
+         git add .sedfile.txt
+         git commit -m "Updated the tag version ${{ github.event.release.tag_name }}"
+         git push
       - run:  |
          git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
          npm run release
-         git push --follow-tags origin main
     #  - run: sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json 
     # - run: npm publish
         env:
