@@ -4,8 +4,7 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [published] 
+  push:
 
 jobs:
   build:
@@ -35,11 +34,12 @@ jobs:
       - run: npm set //registry.npmjs.org/:_authToken ${{secrets.npm_token}}
       - run: | 
          sed 's/unix/linux/' sedfile.txt
+         sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json
          git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
          git add sedfile.txt
-         git commit -m "Updated the tag version ${{ github.event.release.tag_name }}"
-         git push
+       #  git commit -m "Updated the tag version ${{ github.event.release.tag_name }}"
+       # git push origin 
       - run:  |
          git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
