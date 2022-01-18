@@ -13,13 +13,15 @@
   "scripts": {
     "test": "karma start --single-run  ./src/test/js/karma.conf.js",
     "karma-test": "jasmine",
-     "postpublish" : "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags"
+    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags",
+      "release": "standard-version"
   },
   "author": "Spideragrep",
   "license": "AGPL",
   "devDependencies": {
     "node": "^14.18.1",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "standard-version": "^9.3.2"
   },
   "keywords": [
     "demo"

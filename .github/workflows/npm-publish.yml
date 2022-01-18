@@ -33,6 +33,7 @@ jobs:
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm set //registry.npmjs.org/:_authToken ${{secrets.npm_token}}
       - run: sed 's/unix/linux/' sedfile.txt
+      - run: npm run release
     #  - run: sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json 
     # - run: npm publish
         env:
