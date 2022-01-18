@@ -4,7 +4,8 @@
 name: Node.js Package
 
 on:
-  push:
+  release:
+    trypes: [published]
 
 jobs:
   build:
@@ -41,9 +42,9 @@ jobs:
        #  git commit -m "Updated the tag version ${{ github.event.release.tag_name }}"
        # git push origin 
       - run:  |
-         git config user.email "38@teragrep.com"
-         git config user.name "spidermanja"
-         npm run release
+        # git config user.email "38@teragrep.com"
+        # git config user.name "spidermanja"
+        # npm run release
     #  - run: sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json 
     # - run: npm publish
         env:
