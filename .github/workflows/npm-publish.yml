@@ -35,7 +35,7 @@ jobs:
       - run: npm set //registry.npmjs.org/:_authToken ${{secrets.npm_token}}
       - run: sed 's/unix/linux/' sedfile.txt
       - run:  |
-         git cpmfog user.email "38@teragrep.com"
+         git config user.email "38@teragrep.com"
          git config user.name "spidermanja"
          npm run release
     #  - run: sed -i "s|\"version\": \"[^\"]*\"|\"version\": \"${{ github.event.release.tag_name }}\"|" package.json 
