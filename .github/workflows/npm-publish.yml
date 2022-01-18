@@ -30,11 +30,8 @@ jobs:
       - run: echo "npm installing..."
       - run: echo "${{ github.event.release.tag_name }}"
       - run: node -p "require('./package.json').version"
-      - name: set package registry
       - run: npm config set registry https://npm.pkg.github.com
-      - name: Github package registry authentication
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
-      - name: Npm registry authentication
       - run: npm set //registry.npmjs.org/:_authToken ${{secrets.npm_token}}
       - run: npm publish
         env:
