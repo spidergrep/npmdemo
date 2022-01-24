@@ -4,8 +4,8 @@
 name: Node.js Package
 
 on:
-  release:
-    trypes: [published]
+  push:
+    
 
 jobs:
   build:
