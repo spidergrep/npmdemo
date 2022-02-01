@@ -4,6 +4,7 @@
 4
 5
 This is from local update that is taken place in the second attempt
+This is from remote that is taken place in the first attempt
 6
 7
 8
